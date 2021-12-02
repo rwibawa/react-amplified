@@ -903,3 +903,6 @@ UPDATE_COMPLETE amplify-reactamplified-dev-162717 AWS::CloudFormation::Stack Wed
 √ All resources are updated in the cloud
 
 ```
+
+username: rwibawa
+password: fsh89furTMiA3Dk
