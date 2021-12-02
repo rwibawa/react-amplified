@@ -674,7 +674,7 @@ UPDATE_COMPLETE                     amplify-reactamplified-dev-162717 AWS::Cloud
 √ All resources are updated in the cloud
 
 GraphQL endpoint: https://lvi4kbpj6zcobhr2rarchbevoa.appsync-api.us-west-1.amazonaws.com/graphql
-GraphQL API KEY: da2-b3x62eazy5bhxczvmbhgvspwny
+GraphQL API KEY: <api-key>
 
 
 
@@ -690,7 +690,7 @@ $ amplify status
 └──────────┴────────────────┴───────────┴───────────────────┘
 
 GraphQL endpoint: https://lvi4kbpj6zcobhr2rarchbevoa.appsync-api.us-west-1.amazonaws.com/graphql
-GraphQL API KEY: da2-b3x62eazy5bhxczvmbhgvspwny
+GraphQL API KEY: <api-key>
 
 
 
@@ -902,7 +902,11 @@ UPDATE_COMPLETE apireactamplified                 AWS::CloudFormation::Stack Wed
 UPDATE_COMPLETE amplify-reactamplified-dev-162717 AWS::CloudFormation::Stack Wed Dec 01 2021 17:02:20 GMT-0800 (Pacific Standard Time)
 √ All resources are updated in the cloud
 
+
+$ aws cloudformation list-stacks
+$ aws cloudformation get-template --stack-name amplify-reactamplified-dev-162717 > docs/cf/amplify-reactamplified-dev-162717.json
 ```
 
+Sample user:
 username: rwibawa
-password: fsh89furTMiA3Dk
+password: <password>
