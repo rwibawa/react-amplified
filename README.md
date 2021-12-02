@@ -1,70 +1,111 @@
-# Getting Started with Create React App
+# react-amplified
+* [Tutorial](https://docs.amplify.aws/start/getting-started/setup/q/integration/react/#create-a-new-react-app)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. Setup
+### 1.1. Create a new reactjs app:
+```sh
+$ nvm ls
+  * 12.22.7 (Currently using 64-bit executable)
+$ npm install -g @aws-amplify/cli
 
-## Available Scripts
+$ npx create-react-app react-amplified
+$ cd react-amplified
 
-In the project directory, you can run:
+$ yarn start
 
-### `yarn start`
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 1.2. Create the back-end:
+```sh
+$ amplify init
+Note: It is recommended to run this command from the root of your app directory
+? Enter a name for the project react-amplified
+>> Project name should be between 3 and 20 characters and alphanumeric
+E:\workspace_amplify>amplify configure
+Follow these steps to set up access to your AWS account:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Sign in to your AWS administrator account:
+https://console.aws.amazon.com/
+Press Enter to continue
 
-### `yarn test`
+Specify the AWS Region
+? region:  us-west-1
+Specify the username of the new IAM user:
+? user name:  amplify-mFkzo
+Complete the user creation using the AWS console
+https://console.aws.amazon.com/iam/home?region=us-west-1#/users$new?step=final&accessKey&userNames=amplify-mFkzo&permissionType=policies&policies=arn:aws:iam::aws:policy%2FAdministratorAccess
+Press Enter to continue
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Enter the access key of the newly created user:
+? accessKeyId:  ********************
+? secretAccessKey:  ****************************************
+This would update/create the AWS Profile in your local machine
+? Profile Name:  default
 
-### `yarn build`
+Successfully set up the new user.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+$ amplify init
+Note: It is recommended to run this command from the root of your app directory
+? Enter a name for the project reactamplified
+The following configuration will be applied:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Project information
+| Name: reactamplified
+| Environment: dev
+| Default editor: Visual Studio Code
+| App type: javascript
+| Javascript framework: react
+| Source Directory Path: src
+| Distribution Directory Path: build
+| Build Command: npm.cmd run-script build
+| Start Command: npm.cmd run-script start
 
-### `yarn eject`
+? Initialize the project with the above configuration? Yes
+Using default provider  awscloudformation
+? Select the authentication method you want to use: AWS profile
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+For more information on AWS Profiles, see:
+https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+? Please choose the profile you want to use default
+Adding backend environment dev to AWS Amplify app: dtvgqrv328pxw
+- Initializing project in the cloud...
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+CREATE_IN_PROGRESS amplify-reactamplified-dev-162717 AWS::CloudFormation::Stack Wed Dec 01 2021 16:27:26 GMT-0800 (Pacific Standard Time) User Initiated
+CREATE_IN_PROGRESS DeploymentBucket                  AWS::S3::Bucket            Wed Dec 01 2021 16:27:29 GMT-0800 (Pacific Standard Time)
+CREATE_IN_PROGRESS AuthRole                          AWS::IAM::Role             Wed Dec 01 2021 16:27:29 GMT-0800 (Pacific Standard Time)
+CREATE_IN_PROGRESS UnauthRole                        AWS::IAM::Role             Wed Dec 01 2021 16:27:30 GMT-0800 (Pacific Standard Time)
+CREATE_IN_PROGRESS UnauthRole                        AWS::IAM::Role             Wed Dec 01 2021 16:27:31 GMT-0800 (Pacific Standard Time) Resource creation Initiated
+\ Initializing project in the cloud...
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+CREATE_IN_PROGRESS DeploymentBucket AWS::S3::Bucket Wed Dec 01 2021 16:27:31 GMT-0800 (Pacific Standard Time) Resource creation Initiated
+- Initializing project in the cloud...
 
-## Learn More
+CREATE_IN_PROGRESS AuthRole AWS::IAM::Role Wed Dec 01 2021 16:27:31 GMT-0800 (Pacific Standard Time) Resource creation Initiated
+/ Initializing project in the cloud...
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+CREATE_COMPLETE UnauthRole AWS::IAM::Role Wed Dec 01 2021 16:27:44 GMT-0800 (Pacific Standard Time)
+CREATE_COMPLETE AuthRole   AWS::IAM::Role Wed Dec 01 2021 16:27:45 GMT-0800 (Pacific Standard Time)
+/ Initializing project in the cloud...
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+CREATE_COMPLETE DeploymentBucket                  AWS::S3::Bucket            Wed Dec 01 2021 16:27:52 GMT-0800 (Pacific Standard Time)
+CREATE_COMPLETE amplify-reactamplified-dev-162717 AWS::CloudFormation::Stack Wed Dec 01 2021 16:27:54 GMT-0800 (Pacific Standard Time)
+√ Successfully created initial AWS cloud resources for deployments.
+√ Initialized provider successfully.
+Initialized your environment successfully.
 
-### Code Splitting
+Your project has been successfully initialized and connected to the cloud!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Some next steps:
+"amplify status" will show you what you've added already and if it's locally configured or deployed
+"amplify add <category>" will allow you to add features like user login or a backend API
+"amplify push" will build all your local backend resources and provision it in the cloud
+"amplify console" to open the Amplify Console and view your project status
+"amplify publish" will build all your local backend and frontend resources (if you have hosting category added) and provision it in the cloud
 
-### Analyzing the Bundle Size
+Pro tip:
+Try "amplify add api" to create a backend API and then "amplify publish" to deploy everything
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+$ yarn add aws-amplify @aws-amplify/ui-react@1.x.x
+```
